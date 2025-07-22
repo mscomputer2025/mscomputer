@@ -14,13 +14,20 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('student_name');
-            $table->string('student_email')->unique()->nullable();
-            $table->string('student_phone')->unique();
-            $table->string('student_course')->nullable();
-            $table->string('student_address')->nullable();
+            $table->string('student_email')->unique();
+            $table->string('student_mobile');
+            $table->enum('student_gender', ['Male', 'Female', 'Other'])->nullable();
+            $table->date('student_dob')->nullable();
+            $table->text('student_address')->nullable();
+            $table->string('student_city')->nullable();
+            $table->string('student_pincode')->nullable();
             $table->string('student_photo')->nullable();
-            $table->string('student_password'); // 🔧 Fixed typo
-            $table->string('user_type')->default('student'); // ✅ Auto default value
+            $table->string('student_aadhaar_no')->nullable();
+            $table->string('student_guardian_name')->nullable();
+            $table->string('student_guardian_contact')->nullable();
+            $table->string('student_qualification')->nullable();
+            $table->string('student_password');
+            $table->string('student_user_role')->default('student');
             $table->timestamps();
         });
     }
