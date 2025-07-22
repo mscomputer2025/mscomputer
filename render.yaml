@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: ms-computer-education
+    env: php
+    region: oregon
+    branch: main
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan key:generate
+      php artisan migrate --force
+      php artisan config:cache
+    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value:  mscomp-db.onrender.com
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        value: mscomputer
+      - key: DB_USERNAME
+        value: render_admin_8k92
+      - key: DB_PASSWORD
+        value: 

@@ -1,0 +1,47 @@
+:root {
+  --primary-blue: #1E3A8A;
+  --light-blue: #3B82F6;
+  --white: #ffffff;
+  --light-bg: #f8fafc;
+  --footer-bg: #0F172A;
+  --gray-text: #d1d5db;
+}
+
+/* Header/Navbar Styling */
+.navbar {
+  background-color: var(--primary-blue);
+}
+.navbar .navbar-brand span,
+.navbar .nav-link {
+  color: var(--white) !important;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--light-blue) !important;
+}
+.navbar .dropdown-menu {
+  background-color: var(--white);
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.navbar .dropdown-item:hover {
+  background-color: var(--light-blue);
+  color: var(--white);
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--white);
+}
+footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--light-blue);
+  text-decoration: underline;
+}
+footer hr {
+  border-top: 1px solid var(--gray-text);
+}

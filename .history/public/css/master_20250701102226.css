@@ -1,0 +1,54 @@
+:root {
+  --primary-light: #F8FAFC;         /* Almost white background */
+  --accent-blue: #2563EB;           /* Strong blue (for hover/highlights) */
+  --nav-text: #1F2937;              /* Dark gray for nav text */
+  --footer-bg: #E5E7EB;             /* Light gray footer background */
+  --footer-text: #374151;           /* Dark gray text */
+  --footer-link-hover: #2563EB;
+}
+
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--main-bg);
+}
+.navbar .navbar-brand span,
+.navbar .nav-link {
+  color: var(--text-light) !important;
+  font-weight: 500;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--accent) !important;
+}
+
+/* Dropdown Menu */
+.navbar .dropdown-menu {
+  background-color: var(--text-light);
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar .dropdown-item {
+  color: var(--main-bg);
+}
+.navbar .dropdown-item:hover {
+  background-color: var(--accent);
+  color: var(--main-bg);
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--main-bg);
+  color: var(--text-light);
+}
+footer a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+footer hr {
+  border-top: 1px solid var(--footer-border);
+}

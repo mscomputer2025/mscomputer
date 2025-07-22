@@ -1,0 +1,52 @@
+:root {
+  --main-bg: #2D2A32;         /* Dark charcoal */
+  --accent: #FBBF24;          /* Golden Yellow */
+  --text-light: #FDF6EC;      /* Off-white for contrast */
+  --link-hover: #FFE8B2;      /* Light highlight */
+  --footer-border: #6B7280;   /* Divider */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--main-bg);
+}
+.navbar .navbar-brand span,
+.navbar .nav-link {
+  color: var(--text-light) !important;
+  font-weight: 500;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--accent) !important;
+}
+
+/* Dropdown Menu */
+.navbar .dropdown-menu {
+  background-color: var(--text-light);
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar .dropdown-item {
+  color: var(--main-bg);
+}
+.navbar .dropdown-item:hover {
+  background-color: var(--accent);
+  color: var(--main-bg);
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--main-bg);
+  color: var(--text-light);
+}
+footer a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+footer hr {
+  border-top: 1px solid var(--footer-border);
+}
