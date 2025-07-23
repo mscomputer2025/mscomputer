@@ -6,27 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up(): void
-    {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('student_name');
-            $table->string('student_email')->unique()->nullable();
-            $table->string('student_phone')->unique();
-            $table->unsignedBigInteger('course_id')->nullable(); // Foreign key to courses table
-            $table->string('student_address')->nullable();
-            $table->string('student_photo')->nullable();
-            $table->string('student_password');
-            $table->string('user_type')->default('student');
-            $table->timestamps();
+  public function up(): void
+{
+    Schema::create('courses', function (Blueprint $table) {
+        $table->id();
+         $table->string('course_id')->unique();
+        $table->string('course_title');
+        $table->string('course_image');
+        $table->string('course_duration');
+        $table->text('course_description');
+        $table->json('course_curriculum'); 
+        $table->float('course_rating')->default(0);
+        $table->integer('course_reviews')->default(0);
+        $table->timestamps();
+    });
+}
 
-            // Foreign Key Constraint
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('set null');
-        });
-    }
 
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('courses');
     }
 };

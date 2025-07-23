@@ -14,11 +14,8 @@ class Admin extends Authenticatable
     use HasFactory;
     protected $table = 'admin'; // your table name is singular
 
-    protected $fillable = [
-        'admin_name',
-        'admin_email',
-        'admin_password',
-        'admin_role',
+     protected $fillable = [
+        'admin_name', 'admin_email', 'admin_password', 'admin_role',
     ];
 
     protected $hidden = [

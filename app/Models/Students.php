@@ -27,6 +27,7 @@ class Students extends Authenticatable
         'student_guardian_contact',
         'student_qualification',
         'student_password',
+        'branch_id',
         'student_user_role',
     ];
 
@@ -44,7 +45,25 @@ class Students extends Authenticatable
             ->withPivot('total_fee', 'amount_paid', 'amount_due', 'enrollment_date', 'status')
             ->withTimestamps();
     }
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
 
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function certificates()
+    {
+        return $this->hasMany(Certificate::class);
+    }
 
     public function getAuthPassword()
     {

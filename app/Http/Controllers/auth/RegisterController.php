@@ -41,6 +41,7 @@ class RegisterController extends Controller
 
     public function registerStudent(Request $request)
     {
+        
         $validated = $request->validate([
             'student_name' => 'required|string|max:255',
             'student_email' => 'required|email|unique:students,student_email',
@@ -54,7 +55,7 @@ class RegisterController extends Controller
         Students::create([
             'student_name' => $validated['student_name'],
             'student_email' => $validated['student_email'],
-            'student_phone' => $validated['student_phone'],
+            'student_mobile' => $validated['student_phone'],
             'student_course' => $validated['student_course'],
             'student_address' => $validated['student_address'],
             'student_password' => Hash::make($validated['student_password']),

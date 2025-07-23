@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('student_guardian_contact')->nullable();
             $table->string('student_qualification')->nullable();
             $table->string('student_password');
+            $table->foreignId('branch_id')->constrained('branches')->onDelete('cascade');
             $table->string('student_user_role')->default('student');
             $table->timestamps();
         });

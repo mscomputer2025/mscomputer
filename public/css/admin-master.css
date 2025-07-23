@@ -1,43 +1,68 @@
   body {
-      overflow-x: hidden;
-  }
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+        }
 
-  .sidebar {
-      width: 250px;
-      background-color: #343a40;
-      min-height: 100vh;
-      position: fixed;
-      top: 56px;
-      left: 0;
-      z-index: 1000;
-  }
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #3b5998, #192f6a);
+            color: white;
+            position: fixed;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-  .sidebar a {
-      color: #fff;
-      padding: 12px 20px;
-      display: block;
-      text-decoration: none;
-      border-left: 4px solid transparent;
-  }
+        .sidebar h4 {
+            font-weight: bold;
+            padding: 1.5rem 1rem;
+            margin: 0;
+            font-size: 1.3rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-  .sidebar a:hover,
-  .sidebar a.active {
-      background-color: #495057;
-      border-left: 4px solid #0d6efd;
-  }
+        .sidebar a {
+            display: block;
+            color: #cfd8dc;
+            padding: 0.75rem 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            border-left: 4px solid transparent;
+        }
 
-  .content-area {
-      margin-left: 250px;
-      margin-top: 56px;
-      padding: 20px;
-      background-color: #f8f9fa;
-      min-height: 100vh;
-  }
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-left: 4px solid #ffdd57;
+        }
 
-  .top-navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1100;
-  }
+        .logout {
+            position: absolute;
+            bottom: 20px;
+            width: 90%;
+            left: 5%;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .main-content h1 {
+            color: #333;
+        }
+
+        @media(max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                min-height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
