@@ -1,68 +1,70 @@
-  body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f6f8;
+    body {
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .sidebar {
             width: 250px;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #3b5998, #192f6a);
+            background-color: #343a40;
             color: white;
-            position: fixed;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar h4 {
-            font-weight: bold;
-            padding: 1.5rem 1rem;
-            margin: 0;
-            font-size: 1.3rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease-in-out;
         }
 
         .sidebar a {
+            color: #ddd;
             display: block;
-            color: #cfd8dc;
-            padding: 0.75rem 1.2rem;
+            padding: 10px;
             text-decoration: none;
-            transition: all 0.2s ease-in-out;
-            border-left: 4px solid transparent;
+            margin-bottom: 5px;
+            border-radius: 4px;
         }
 
-        .sidebar a:hover,
-        .sidebar a.active {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border-left: 4px solid #ffdd57;
+        .sidebar a.active,
+        .sidebar a:hover {
+            background-color: #495057;
         }
 
         .logout {
-            position: absolute;
-            bottom: 20px;
-            width: 90%;
-            left: 5%;
+            margin-top: 20px;
         }
 
-        .main-content {
-            margin-left: 250px;
-            padding: 2rem;
+        .sidebar-brand h4 {
+            color: #fff;
+        }
+
+        .content {
+            flex: 1;
+            padding: 1rem;
             background-color: #f8f9fa;
-            min-height: 100vh;
         }
 
-        .main-content h1 {
-            color: #333;
-        }
-
-        @media(max-width: 768px) {
+        /* Mobile view */
+        @media (max-width: 768px) {
             .sidebar {
-                width: 100%;
-                position: relative;
-                min-height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                transform: translateX(-100%);
+                z-index: 1000;
             }
 
-            .main-content {
-                margin-left: 0;
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .toggle-btn {
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 1100;
+                background-color: #343a40;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 4px;
             }
         }

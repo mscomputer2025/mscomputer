@@ -50,10 +50,12 @@ class Students extends Authenticatable
         return $this->belongsTo(Branch::class);
     }
 
-    public function enrollments()
-    {
-        return $this->hasMany(Enrollment::class);
-    }
+
+public function enrollments()
+{
+    return $this->hasMany(Enrollment::class, 'student_id');
+}
+
 
     public function payments()
     {

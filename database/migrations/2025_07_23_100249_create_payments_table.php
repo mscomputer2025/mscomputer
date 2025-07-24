@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('installment_number')->nullable();
             $table->date('payment_date')->default(now());
             $table->text('note')->nullable();
-
             $table->timestamps();
         });
     }

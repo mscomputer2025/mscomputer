@@ -41,7 +41,8 @@ class RegisterController extends Controller
 
     public function registerStudent(Request $request)
     {
-        
+
+     
         $validated = $request->validate([
             'student_name' => 'required|string|max:255',
             'student_email' => 'required|email|unique:students,student_email',

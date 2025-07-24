@@ -5,7 +5,11 @@ use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Livewire\AdminDashboard;
+use App\Livewire\StudentDashboard;
 
+
+use Illuminate\Support\Facades\Auth;
 Route::get('/', [CourseController::class, 'home'])->name('home');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{course_id}', [CourseController::class, 'show'])->name('courses.show');
@@ -26,7 +30,20 @@ Route::post('/student/register', [RegisterController::class, 'registerStudent'])
 ;
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('web');
+Route::post('/logout', function () {
+    if (Auth::guard('admin')->check()) {
+        Auth::guard('admin')->logout();
+    } elseif (Auth::guard('student')->check()) {
+        Auth::guard('student')->logout();
+    }
+    session()->flush();
+    return redirect('/login');
+})->name('logout');
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard', AdminDashboard::class)->name('admin.dashboard');
+});
+
+// Student Dashboard
+Route::middleware(['auth:student'])->group(function () {
+    Route::get('/student/dashboard', StudentDashboard::class)->name('student.dashboard');
+});
